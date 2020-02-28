@@ -11,6 +11,8 @@
 #
 # Happy Coding!
 
+app: my-first-app
+org: comountainclimber
 service: hello-serverless
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
