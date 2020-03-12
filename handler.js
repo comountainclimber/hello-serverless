@@ -43,14 +43,3 @@ module.exports.clap = async event => {
 
   return { statusCode: 200 };
 };
-
-module.exports.redirect = async event => {
-  return {
-    statusCode: 302,
-    headers: {
-      Location:
-        "https://slack.com/oauth/v2/authorize?client_id=860725329527.956870149255&scope=commands"
-    },
-    body: ""
-  };
-};
