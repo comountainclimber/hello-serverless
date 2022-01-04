@@ -53,7 +53,7 @@ module.exports.crypto_fetch = async (event) => {
   const joinedTokens = text.split(" ").join(",");
 
   const results = await axios.get(
-    `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${joinedTokens}&tsyms=${USD}`
+    `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${joinedTokens}&tsyms=USD`
   );
 
   const response = JSON.stringify({
@@ -63,7 +63,6 @@ module.exports.crypto_fetch = async (event) => {
       },
     ],
     response_type: "in_channel",
-    text: `<@crypto_fetch}>`,
   });
 
   await axios.post(response_url, response).catch((e) => console.log(e));
