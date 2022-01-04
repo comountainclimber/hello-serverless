@@ -15,18 +15,14 @@ module.exports.clap = async (event) => {
 
   const words = text.split(" ");
 
-  // if (words.length <= 1) {
-  //   return {
-  //     statusCode: 200,
-  //     body: `You need more than one word to use clapper.`,
-  //     headers: { "X-Slack-No-Retry": 1 }
-  //   };
-  // }
-
   let output = "";
 
-  for (let i = 0; i < words.length; i++) {
-    output += i !== words.length - 1 ? `${words[i]} :clap: ` : words[i];
+  if (words.length === 1) {
+    output = `:clap: ${words[0]} :clap:`;
+  } else {
+    for (let i = 0; i < words.length; i++) {
+      output += i !== words.length - 1 ? `${words[i]} :clap: ` : words[i];
+    }
   }
 
   const response = JSON.stringify({
